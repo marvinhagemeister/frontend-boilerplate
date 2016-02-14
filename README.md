@@ -43,7 +43,7 @@ Install [imports-loader](https://github.com/webpack/imports-loader):
 npm install --save-dev imports-loader
 ```
 
-Point `this` to `window`:
+Point `this` to `window` and set `define` to false:
 ```javascript
 // webpack.config.js
 module.exports = {
