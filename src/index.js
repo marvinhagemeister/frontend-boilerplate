@@ -1,4 +1,4 @@
+import {add} from './add';
 
-export const add = (a, b) => {
-    return a + b;
-}
+const t = 5;
+add(2,t);

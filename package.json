@@ -4,7 +4,10 @@
   "description": "Sets up a modern frontend build pipeline",
   "main": "index.js",
   "scripts": {
-    "pretest": "npm run lint",
+    "start": "NODE_ENV=development webpack",
+    "build": "npm run lint --silent && npm run clean && npm run build:js",
+    "build:js": "NODE_ENV=production webpack --display-errors",
+    "pretest": "npm run lint --silent",
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "npm run test -- -w",
     "lint": "eslint src/**/*.js",
@@ -35,8 +38,11 @@
     "babel-register": "^6.5.2",
     "chai": "^3.5.0",
     "eslint": "^2.0.0",
+    "eslint-loader": "^1.2.1",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.2",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.7.1"
   }
 }

@@ -5,7 +5,9 @@ var env = process.env.NODE_ENV;
 
 var getEntries = function(env) {
     var entry = {
-        scripts: __dirname + '/src/index.js'
+        scripts: [
+            __dirname + '/src/index.js'
+        ]
     };
 
     switch (env) {
@@ -56,12 +58,22 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/assets/js/'
     },
-    preLoaders: [
-        {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
-    ],
-    loaders: [
-        {test: /\.js$/, loader: 'babel', exclude: /node_modules/}
-    ],
+    module: {
+        preLoaders: [
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/
+            }
+        ],
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            }
+        ],
+    },
     eslint: {
         configFile: path.join(__dirname, env === 'production' ? '.eslintrc' : '.dev.eslintrc')
     }

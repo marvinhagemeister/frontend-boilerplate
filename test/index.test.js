@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {add} from '../src/index.js';
+import {add} from '../src/add.js';
 
 describe('SampleTest', () => {
     it('should add numbers', () => {
