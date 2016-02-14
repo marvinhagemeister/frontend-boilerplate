@@ -1,0 +1,29 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "0.1.0",
+  "description": "Sets up a modern frontend build pipeline",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvinhagemeister/frontend-boilerplate.git"
+  },
+  "keywords": [
+    "webpack",
+    "sass",
+    "scss",
+    "boilerplate"
+  ],
+  "author": "Marvin Hagemeister <marvin@marvinhagemeister.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marvinhagemeister/frontend-boilerplate/issues"
+  },
+  "homepage": "https://github.com/marvinhagemeister/frontend-boilerplate#readme",
+  "devDependencies": {
+    "eslint": "^2.0.0"
+  }
+}

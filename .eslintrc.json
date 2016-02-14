@@ -1,0 +1,15 @@
+{
+    "rules": {
+        "linebreak-style": [2, "unix"]
+    },
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true,
+        "mocha": true
+    },
+    "globals": {
+        "$": true
+    },
+    "extends": "eslint:recommended"
+}
