@@ -54,9 +54,9 @@ module.exports = {
     entry: getEntries(env),
     plugins: getPlugins(env),
     output: {
-        path: __dirname + '/dist/assets/js',
+        path: __dirname + '/public/assets/dist/',
         filename: 'bundle.js',
-        publicPath: '/assets/js/'
+        publicPath: '/assets/dist/'
     },
     module: {
         preLoaders: [
