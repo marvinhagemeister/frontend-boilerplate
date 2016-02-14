@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
-    "test:watch": "npm run test  -- -w",
+    "test:watch": "npm run test -- -w",
     "lint": "eslint src/**/*.js",
     "clean": "rimraf dist"
   },
