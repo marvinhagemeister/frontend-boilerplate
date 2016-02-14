@@ -12,10 +12,9 @@ Go into the cloned directory and install all npm dependencies:
 cd frontend-boilerplate && npm install
 ```
 
-## jQuery usage with legacy plugins
+## Use jQuery with legacy plugins
 Unfortunately most jQuery plugins (except the really popular ones) were written before frontend modules were a thing. Even the newer ones usually have a broken universal module definition which makes bundling difficult. The cleanest solution would be to send a PR to the chosen plugin. But if you need a library that is not on github you can load them unprocessed with webpack.
 
-### Install jQuery
 Obviously you need jQuery first:
 ```bash
 npm install --save jquery
@@ -25,7 +24,6 @@ npm install --save jquery
 Most legacy modules rely on `$` or `jQuery` being available globally. Add this to the plugin section:
 ```javascript
 // webpack.config.js
-
 module.exports = {
     ...
     plugins: [
@@ -48,7 +46,6 @@ npm install --save-dev imports-loader
 Point `this` to `window`:
 ```javascript
 // webpack.config.js
-
 module.exports = {
     ...
     loaders: [
@@ -66,7 +63,6 @@ There are a lot of modules which use outdated module definition code. They usual
 
 ```javascript
 // webpack.config.js
-
 module.exports = {
     ...
     loaders: [
@@ -77,3 +73,4 @@ module.exports = {
     ]
 }
 ```
+Note: you can add multiple import-loaders like this: `imports?define=>false,this=>window`
