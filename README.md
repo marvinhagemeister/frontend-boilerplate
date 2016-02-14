@@ -35,8 +35,8 @@ module.exports = {
 }
 ```
 
-### Point `this` to `window`
-In CommonJS context `this` points to `module.exports` whereas legacy jQuery plugins expect it to be `window`. You can override `this` for specific modules with the [imports-loader](https://github.com/webpack/imports-loader).
+### Change `this` reference and fix broken module definitions
+In CommonJS context `this` points to `module.exports` whereas legacy jQuery plugins expect it to be `window`. You can override `this` for specific modules with the [imports-loader](https://github.com/webpack/imports-loader). Moreover most legacy modules that were written during the early stages of UMD contain broken module definitions. They usually check for `define` (AMD) first before checking for CommonJS modules. To fix this we can leverage [imports-loader](https://github.com/webpack/imports-loader) again by simply setting `define` to `false`.
 
 Install [imports-loader](https://github.com/webpack/imports-loader):
 ```bash
@@ -51,26 +51,9 @@ module.exports = {
     loaders: [
         {
             test: /[\/\\]node_modules[\/\\]some-module[\/\\]index\.js$/,
-            loader: 'imports?this=>window'
+            loader: 'imports?this=>window,define=>false'
         }
     ]
 }
 ```
-Note: `ProvidePlugin` is usually more useful for implicit globals.
-
-### Plugins with half-broken module definitions
-There are a lot of modules which use outdated module definition code. They usually check for `define` (AMD) first before checking for CommonJS modules. In this case you can disable AMD loading for a specific module with [imports-loader](https://github.com/webpack/imports-loader).
-
-```javascript
-// webpack.config.js
-module.exports = {
-    ...
-    loaders: [
-        {
-            test: /[\/\\]node_modules[\/\\]some-module[\/\\]index\.js$/,
-            loader: 'imports?define=>false'
-        }
-    ]
-}
-```
-Note: you can add multiple import-loaders like this: `imports?define=>false,this=>window`
+Note: `ProvidePlugin` is usually more useful for implicit globals, whereas import-loaders is only meant for specific files.
