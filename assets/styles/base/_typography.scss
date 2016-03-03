@@ -1,0 +1,10 @@
+.typeset {
+    h1, h2, h3, h4, h5, h6 {
+        // Special open-type settings
+        font-feature-settings: 'dlig' 1,'liga' 1,'lnum' 1,'kern' 1;
+    }
+
+    p {
+        font-feature-settings: 'kern' 1,'onum' 1,'liga' 1;
+    }
+}
