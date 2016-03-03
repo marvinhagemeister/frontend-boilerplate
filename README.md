@@ -6,6 +6,7 @@ Always wanted to use a modern frontend environment but all the js-tools intimida
 - JS and SASS hot module reloading (no need to refresh the browser)
 - BrowserSync for syncing scrolling, inputs and navigation
 - Babel to transpile ES6 to ES5
+- Code coverage reporting with istanbul
 
 ## Installation
 Clone the repository:
