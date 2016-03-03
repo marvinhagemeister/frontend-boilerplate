@@ -13,6 +13,7 @@
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "npm run test -- -w",
     "coverage": "istanbul cover _mocha -- --compilers js:babel-register",
+    "coverage:open": "open coverage/lcov-report/index.html",
     "lint": "eslint src/**/*.js",
     "clean": "rimraf public/assets/dist"
   },
@@ -50,6 +51,7 @@
     "istanbul": "^1.0.0-alpha",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
+    "open": "0.0.5",
     "postcss-loader": "^0.8.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.1.2",
