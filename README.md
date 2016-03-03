@@ -63,3 +63,7 @@ module.exports = {
 }
 ```
 Note: `ProvidePlugin` is usually more useful for implicit globals, whereas import-loaders is only meant for specific files.
+
+## License
+
+Sassline is licensed under the [MIT license](http://opensource.org/licenses/MIT).
