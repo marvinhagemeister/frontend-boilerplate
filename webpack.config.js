@@ -7,15 +7,15 @@ var env = process.env.NODE_ENV;
 
 var getEntries = function(env) {
     var entry = {
-        scripts: [
+        app: [
             __dirname + '/src/index.js'
         ]
     };
 
     switch (env) {
         case 'development':
-            entry.scripts.push('webpack/hot/dev-server');
-            entry.scripts.push('webpack-hot-middleware/client');
+            entry.app.push('webpack/hot/dev-server');
+            entry.app.push('webpack-hot-middleware/client');
             break;
     }
 
@@ -51,6 +51,11 @@ var getPlugins = function(env) {
     return plugins;
 };
 
+// SCSS Loader
+var scssLoader = env !== 'production'
+    ? 'style!css!postcss!sass'
+    : ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader');
+
 module.exports = {
     devtool: env === 'production' ? 'source-map' : 'eval',
     debug: !(env === 'production'),
@@ -78,7 +83,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader')
+                loader: scssLoader
             }
         ],
     },

@@ -20,7 +20,6 @@ browserSync.init({
         webpackHotMiddleware(bundler)
     ],
     files: [
-        'public/assets/dist/*.css',
         'public/*.html'
     ]
 });
