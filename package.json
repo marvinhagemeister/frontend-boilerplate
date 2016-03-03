@@ -10,6 +10,7 @@
     "pretest": "npm run lint --silent",
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "npm run test -- -w",
+    "coverage": "istanbul cover _mocha -- --compilers js:babel-register",
     "lint": "eslint src/**/*.js",
     "clean": "rimraf public/assets/dist"
   },
@@ -43,6 +44,7 @@
     "eslint": "^2.2.0",
     "eslint-loader": "^1.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "istanbul": "^1.0.0-alpha",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.1",
