@@ -1,6 +1,12 @@
 # Frontend-Boilerplate - Save time bootstrapping a new project
 Always wanted to use a modern frontend environment but all the js-tools intimidate you? Then this project is made for you. Frontend-Boilerplate sets up a modern frontend environment with best practices already backed in. Under the hood it uses [babel](https://github.com/babel/babel) to transpile ES6 to ES5, [webpack](https://github.com/webpack/webpack) to bundle all your modules and [mocha](https://github.com/mochajs/mocha) as a testrunner.
 
+## Features
+- Standard 7-1 SASS folder structure
+- JS and SASS hot module reloading (no need to refresh the browser)
+- BrowserSync for syncing scrolling, inputs and navigation
+- Babel to transpile ES6 to ES5
+
 ## Installation
 Clone the repository:
 ```bash
