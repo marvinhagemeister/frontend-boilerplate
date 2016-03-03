@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development node dev.server.js",
-    "build": "npm run lint --silent && npm run clean && npm run build:js",
+    "build": "npm run lint --silent && npm run clean && npm run build:js && npm run build:icons",
     "build:js": "NODE_ENV=production webpack --display-errors",
+    "build:icons": "svgo -f assets/svg && mkdir -p public/assets/dist/svg && svg-sprite-generate -d assets/svg -o public/assets/dist/svg/icons.svg",
     "pretest": "npm run lint --silent",
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "npm run test -- -w",
@@ -51,6 +52,8 @@
     "rimraf": "^2.5.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "svg-sprite-generator": "0.0.7",
+    "svgo": "^0.6.1",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.9.1"
