@@ -1,12 +1,13 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var path = require('path');
+"use strict";
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const path = require('path');
 
-var env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV;
 
-var getEntries = function(env) {
-    var entry = {
+const getEntries = function(env) {
+    let entry = {
         app: [
             __dirname + '/src/index.js'
         ]
@@ -22,8 +23,8 @@ var getEntries = function(env) {
     return entry;  
 };
 
-var getPlugins = function(env) {
-    var plugins = [
+const getPlugins = function(env) {
+    let plugins = [
         new ExtractTextPlugin('[name].css')
     ];
 
@@ -52,7 +53,7 @@ var getPlugins = function(env) {
 };
 
 // SCSS Loader
-var scssLoader = env !== 'production'
+const scssLoader = env !== 'production'
     ? 'style!css!postcss!sass'
     : ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader');
 
