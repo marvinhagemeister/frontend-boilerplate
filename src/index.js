@@ -5,6 +5,9 @@ if (module.hot) {
     module.hot.accept();
 }
 
+// CSS
+import './../assets/styles/main.scss';
+
 import {add} from './add';
 
 const t = 5;

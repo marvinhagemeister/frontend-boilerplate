@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 var path = require('path');
 
 var env = process.env.NODE_ENV;
@@ -21,7 +23,9 @@ var getEntries = function(env) {
 };
 
 var getPlugins = function(env) {
-    var plugins = [];
+    var plugins = [
+        new ExtractTextPlugin('[name].css')
+    ];
 
     switch (env) {
         case 'production':
@@ -71,10 +75,19 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader')
             }
         ],
     },
     eslint: {
         configFile: path.join(__dirname, env === 'production' ? '.eslintrc' : '.dev.eslintrc')
-    }
+    },
+    postcss: [
+        autoprefixer({
+          browsers: ['last 2 versions']
+        })
+    ],
 };
