@@ -40,3 +40,17 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+// Position fill
+@mixin pos-fill($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// Lock aspect ratio
+@mixin ratio($width: 1, $height: 1) {
+    padding-bottom: percentage($height/$width);
+    height: 0;
+}
