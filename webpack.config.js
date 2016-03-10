@@ -33,7 +33,8 @@ const getPlugins = function(env) {
             plugins.push(new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify('production')
-                }
+                },
+                '__DEV__': false
             }));
             plugins.push(new webpack.optimize.OccurenceOrderPlugin());
             plugins.push(new webpack.optimize.DedupePlugin());
@@ -46,6 +47,9 @@ const getPlugins = function(env) {
         case 'development':
             plugins.push(new webpack.HotModuleReplacementPlugin());
             plugins.push(new webpack.NoErrorsPlugin());
+            plugins.push(new webpack.DefinePlugin({
+                '__DEV__': true
+            }));
             break;
     }
 
