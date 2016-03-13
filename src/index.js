@@ -8,7 +8,4 @@ if (module.hot) {
 // CSS
 import './../assets/styles/main.scss';
 
-import {add} from './add';
-
-const t = 5;
-add(2,t);
+import './container/app';
