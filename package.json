@@ -10,10 +10,10 @@
     "build:icons": "svgo -f assets/svg && mkdir -p public/assets/dist/svg && svg-sprite-generate -d assets/svg -o public/assets/dist/svg/icons.svg",
     "imagemin": "imagemin assets/images public/assets/dist/images -p",
     "pretest": "npm run lint --silent",
-    "test": "mocha --compilers js:babel-register test/**/*.test.js",
-    "test:watch": "npm run test -- -w",
-    "coverage": "istanbul cover _mocha -- --compilers js:babel-register",
-    "coverage:open": "open coverage/lcov-report/index.html",
+    "test": "ava --require babel-register test/**/*.test.js",
+    "test:watch": "npm test -- --watch",
+    "coverage": "nyc npm test",
+    "coverage:open": "nyc report --reporter=html && open coverage/index.html",
     "lint": "eslint src/**/*.js",
     "clean": "rimraf public/assets/dist"
   },
@@ -35,22 +35,21 @@
   "homepage": "https://github.com/marvinhagemeister/frontend-boilerplate#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.3",
+    "ava": "^0.13.0",
     "babel-core": "^6.6.4",
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^6.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.6.0",
     "babel-preset-es2015": "^6.6.0",
     "babel-register": "^6.6.0",
     "browser-sync": "^2.11.1",
-    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "eslint": "^2.2.0",
     "eslint-loader": "^1.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "imagemin-cli": "^2.1.0",
-    "istanbul": "^1.0.0-alpha",
-    "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
+    "nyc": "^6.1.1",
     "open": "0.0.5",
     "postcss-loader": "^0.8.1",
     "rimraf": "^2.5.2",
@@ -64,6 +63,6 @@
   },
   "dependencies": {
     "include-media": "^1.4.2",
-    "normalize.css": "^3.0.3"
+    "normalize.css": "^4.0.0"
   }
 }
