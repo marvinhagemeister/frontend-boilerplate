@@ -1,12 +1,13 @@
 # Frontend-Boilerplate - Save time bootstrapping a new project
-Always wanted to use a modern frontend environment but all the js-tools intimidate you? Then this project is made for you. Frontend-Boilerplate sets up a modern frontend environment with best practices already backed in. Under the hood it uses [babel](https://github.com/babel/babel) to transpile ES6 to ES5, [webpack](https://github.com/webpack/webpack) to bundle all your modules and [mocha](https://github.com/mochajs/mocha) as a testrunner.
+Frontend-Boilerplate sets up a modern frontend environment with best practices already backed in. Under the hood it uses [babel](https://github.com/babel/babel) to transpile ES6 to ES5, [webpack](https://github.com/webpack/webpack) to bundle all your modules and [ava](https://github.com/sindresorhus/ava) for testing.
 
 ## Features
 - Standard 7-1 SASS folder structure
 - JS and SASS hot module reloading (no need to refresh the browser)
-- BrowserSync for syncing scrolling, inputs and navigation
-- Babel to transpile ES6 to ES5
-- Code coverage reporting with istanbul
+- Completely synchronized browser behaviour (scrolling, user input, etc)
+- Automatic ES6->ES5 transpiling
+- Code coverage reporting
+- Parallel tests with full support for promises and async
 
 ## Installation
 Clone the repository:
@@ -19,7 +20,7 @@ Go into the cloned directory and install all npm dependencies:
 cd frontend-boilerplate && npm install
 ```
 
-## Use jQuery with legacy plugins
+## Usage with legacy jQuery plugins
 Unfortunately most jQuery plugins (except the really popular ones) were written before frontend modules were a thing. Even the newer ones usually have a broken universal module definition which makes bundling difficult. The cleanest solution would be to send a PR to the chosen plugin. But if you need a library that is not on github you can load them unprocessed with webpack.
 
 Obviously you need jQuery first:
