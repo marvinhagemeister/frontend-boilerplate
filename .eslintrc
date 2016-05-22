@@ -6,14 +6,11 @@
     "env": {
         "node": true,
         "browser": true,
-        "es6": true
+        "es6": true,
+        "mocha": true
     },
     "globals": {
-        "$": true,
         "__DEV__": true
     },
-    "plugins": [
-        "ava"
-    ],
-    "extends": ["eslint:recommended", "plugin:ava/recommended"]
+    "extends": ["eslint:recommended"]
 }
