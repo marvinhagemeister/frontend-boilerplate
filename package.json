@@ -14,7 +14,7 @@
     "test:watch": "npm test -- --watch",
     "coverage": "nyc npm test",
     "coverage:open": "nyc report --reporter=html && open coverage/index.html",
-    "lint": "eslint src/**/*.js test/**/*.js",
+    "lint": "eslint src/**/*.js test/**/*.js && stylelint --syntax scss assets/styles/**/*.scss",
     "clean": "rimraf public/assets/dist"
   },
   "repository": {
@@ -56,6 +56,10 @@
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "stylelint": "^6.5.1",
+    "stylelint-config-standard": "^8.0.0",
+    "stylelint-statement-max-nesting-depth": "^2.0.1",
+    "stylelint-webpack-plugin": "^0.2.0",
     "svg-sprite-generator": "0.0.7",
     "svgo": "^0.6.6",
     "webpack": "^1.13.0",

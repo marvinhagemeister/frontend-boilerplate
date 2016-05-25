@@ -1,6 +1,7 @@
 "use strict";
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 
@@ -20,12 +21,16 @@ const getEntries = function(env) {
             break;
     }
 
-    return entry;  
+    return entry;
 };
 
 const getPlugins = function(env) {
     let plugins = [
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].css'),
+        new styleLintPlugin({
+            configFile: '.stylelintrc',
+            syntax: 'scss'
+        })
     ];
 
     switch (env) {
@@ -57,9 +62,7 @@ const getPlugins = function(env) {
 };
 
 // SCSS Loader
-const scssLoader = env !== 'production'
-    ? 'style!css!postcss!sass'
-    : ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader');
+const scssLoader = env !== 'production' ? 'style!css!postcss!sass' : ExtractTextPlugin.extract('style-loader', '!css-loader!postcss-loader!sass-loader');
 
 module.exports = {
     devtool: env === 'production' ? 'source-map' : 'eval',
@@ -73,31 +76,26 @@ module.exports = {
         publicPath: '/assets/dist/'
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                loader: 'eslint-loader',
-                exclude: /node_modules/
-            }
-        ],
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.scss$/,
-                loader: scssLoader
-            }
-        ],
+        preLoaders: [{
+            test: /\.js$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/
+        }],
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            loader: scssLoader
+        }]
     },
     eslint: {
         configFile: path.join(__dirname, env === 'production' ? '.eslintrc' : '.dev.eslintrc')
     },
     postcss: [
         autoprefixer({
-          browsers: ['last 2 versions']
+            browsers: ['last 2 versions']
         })
-    ],
+    ]
 };

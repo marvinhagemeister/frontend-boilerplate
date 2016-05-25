@@ -1,0 +1,11 @@
+
+{
+    "plugins": [
+        "stylelint-statement-max-nesting-depth"
+    ],
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "statement-max-nesting-depth": 2,
+        "selector-list-comma-newline-after": "always-multi-line"
+    }
+}
