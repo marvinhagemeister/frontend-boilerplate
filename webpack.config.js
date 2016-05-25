@@ -28,7 +28,7 @@ const getPlugins = function(env) {
     let plugins = [
         new ExtractTextPlugin('[name].css'),
         new styleLintPlugin({
-            configFile: '.stylelintrc',
+            configFile: '.stylelintrc.json',
             syntax: 'scss'
         })
     ];
