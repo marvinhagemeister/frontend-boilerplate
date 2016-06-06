@@ -1,5 +1,7 @@
 {
-    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
         "linebreak-style": [2, "unix"]
     },
