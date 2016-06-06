@@ -11,8 +11,7 @@
     "pretest": "npm run lint --silent",
     "test": "mocha --compilers js:babel-register test/**/*.test.js",
     "test:watch": "npm test -- --watch",
-    "coverage": "nyc npm test",
-    "coverage:open": "nyc report --reporter=html && open coverage/index.html",
+    "coverage": "nyc npm test && nyc report --reporter=html",
     "lint": "eslint src/**/*.js test/**/*.js && stylelint --syntax scss assets/styles/**/*.scss",
     "clean": "rimraf public/assets/dist"
   },
@@ -49,7 +48,6 @@
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "nyc": "^6.4.4",
-    "open": "0.0.5",
     "postcss-loader": "^0.9.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
