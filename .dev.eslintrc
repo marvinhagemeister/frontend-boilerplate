@@ -16,8 +16,5 @@
         "$": true,
         "__DEV__": true
     },
-    "plugins": [
-        "ava"
-    ],
-    "extends": ["eslint:recommended", "plugin:ava/recommended"]
+    "extends": ["eslint:recommended"]
 }
