@@ -1,56 +1,54 @@
 // Clearfix - Taken from http://cssmojo.com/the-very-latest-clearfix-reloaded/
 @mixin clearfix {
-    &:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 // Grid with nth-child() selector
 @mixin nth-grid($columns: 6) {
-    float: left;
-    width: 100% / $grid__columns * $columns;
-
-    & > *:nth-child(#{columns}n+1) {
-        clear: both;
-    }
+  float: left;
+  width: 100% / $grid__columns * $columns;
+  & > *:nth-child(#{columns}n+1) {
+    clear: both;
+  }
 }
 
 // @font-face mixin
 @mixin font-face($name, $filename, $weight: 'normal', $style: 'normal') {
-    $path: $font__path + $filename;
+  $path: $font__path + $filename;
 
-    @font-face {
-        font-family: $name;
-        src: url($path + '.eot'); /* IE9 Compat Modes */
-        src: url($path + '.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-             url($path + '.woff2') format('woff2'), /* Super Modern Browsers */
-             url($path + '.woff') format('woff'), /* Pretty Modern Browsers */
-             url($path + '.ttf') format('truetype'), /* Safari, Android, iOS */
-             url($path + '.svg#' + $filename) format('svg'); /* Legacy iOS */
-        font-style: $style;
-        font-weight: $weight;
-    }
+  @font-face {
+    font-family: $name;
+    src:
+      url($path + '.woff2') format('woff2'),
+      url($path + '.woff') format('woff'),
+      url($path + '.ttf') format('truetype'),
+      url($path + '.svg#' + $filename) format('svg');
+    font-style: $style;
+    font-weight: $weight;
+  }
 }
 
 // Ellipsis
 @mixin ellipsis() {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 // Position fill
 @mixin pos-fill($top: 0, $right: 0, $bottom: 0, $left: 0) {
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 
 // Lock aspect ratio
 @mixin ratio($width: 1, $height: 1) {
-    padding-bottom: percentage($height/$width);
-    height: 0;
+  padding-bottom: percentage($height/$width);
+  height: 0;
 }

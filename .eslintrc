@@ -1,15 +1,17 @@
 {
-    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
         "linebreak-style": [2, "unix"]
     },
     "env": {
         "node": true,
         "browser": true,
-        "es6": true
+        "es6": true,
+        "mocha": true
     },
     "globals": {
-        "$": true,
         "__DEV__": true
     },
     "plugins": [
